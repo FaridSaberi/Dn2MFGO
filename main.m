@@ -39,7 +39,7 @@ options.l = length(options.r);
 options.alpha = 1; %% This parameter needs to be tuned. Suggested range: {10^-8,10^-6,10^-4,10^-2,1,10^2,10^4,10^6,10^8}
 options.beta = 1; %% This parameter needs to be tuned. Suggested range: {10^-8,10^-6,10^-4,10^-2,1,10^2,10^4,10^6,10^8}
 options.nu = 1; %% This parameter needs to be tuned. Suggested range: {10^-8,10^-6,10^-4,10^-2,1,10^2,10^4,10^6,10^8}
-options.maxiter = 10;
+options.maxiter = 100;
 
 
 %% Laplacian, Similarity and Degree Matrices
