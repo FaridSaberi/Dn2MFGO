@@ -1,5 +1,5 @@
 %% An implementation of Deep Nonnegative Matrix Factorization with Joint Global and Local Structure Preservation
-%% Farid Saberi Movahed,
+%% Farid Saberi Movahed
 %% Email: f.saberimovahed@kgut.ac.ir & fdsaberi@gmail.com
 %% 12-1-2023
 %%
