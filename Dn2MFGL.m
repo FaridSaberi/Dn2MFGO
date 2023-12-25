@@ -28,17 +28,17 @@ E = (1/n)*ones(n,1)*(ones(n,1)');
 [H,V] = Pretain(X,l,r);
 
 %% Computing the L21 norm of X - H1H2...HlVl
-PW = eye(m,m);
-for i=1:l
-    PW = PW*H{i};
+Q = eye(m,m);
+for i = 1:l
+    Q = Q*H{i};
 end
-Z = X-PW*V{l};
+Z = X - Q*V{l};
 P = L21(Z);
 
 
 
-iter=1;
-while (iter<=maxiter)
+iter = 1;
+while (iter <= maxiter)
     
     %% Initialization
     phi = cell(l+1,1);
@@ -50,21 +50,21 @@ while (iter<=maxiter)
         %% phi
         if i>1
             phi{i} = H{i-1};
-            for j=i-2:-1:1
+            for j = i-2:-1:1
                 phi{i} = H{j}*phi{i};
             end
         end
         
         %% psi
-        if i<=l-1
+        if i <= l-1
             psi{i+1} = H{l};
-            for jj=l-1:-1:i+1
+            for jj = l-1:-1:i+1
                 psi{i+1} = H{jj}*psi{i+1};
             end
         end
         
         %% Update Hi
-        if i==1
+        if i == 1
             A = psi{2}*V{l};
             numH = P*X*(A');
             denH = P*H{1}*A*(A');
@@ -88,7 +88,7 @@ while (iter<=maxiter)
         end
         
         %% Update Vl
-        if i==l
+        if i == l
             numV = (phi{l}')*P*X + alpha*V{l}*S + (beta+nu)*V{l};
             denV = (phi{l}')*P*phi{l}*V{l} + alpha*V{l}*D + beta*V{l}*E + nu*V{l}*onesn;
             re2 = numV./max(denV,1e-10);
@@ -102,20 +102,22 @@ while (iter<=maxiter)
             V{i} = V{i}.*re2;
         end
     end
+    
     %% Computing the L21 norm of X - H1H2...HlVl
-    PW=eye(m,m);
-    for i=1:l
-        PW=PW*H{i};
+    Q = eye(m,m);
+    for i = 1:l
+        Q = Q*H{i};
     end
-    Z = X-PW*V{l};
+    Z = X - Q*V{l};
     P = L21(Z);
-    iter = iter +1;
+    iter = iter + 1;
 end
 
 %% Computing the Basis Matrix H = H1H2...Hl
-Hfinal=eye(m,m);
-for i=1:l
-    Hfinal=Hfinal*H{i};
+Hfinal = eye(m,m);
+for i = 1:l
+    Hfinal = Hfinal*H{i};
 end
+
 %% Compute the Representation Matrix Vl
-Vfinal=V{l};
+Vfinal = V{l};
