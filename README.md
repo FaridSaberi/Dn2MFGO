@@ -7,3 +7,7 @@ Deep Non-Negative Matrix Factorization (DNMF) methods provide an efficient low-d
 This repository provides an implementation for Dn2MFGL as described in the paper:
 
 Farid Saberi-Movahed, Bitasta Biswas, Prayag Tiwari, Jens Lehmann, Sahar Vahdati, Deep Nonnegative Matrix Factorization with Joint Global and Local Structure Preservation, Under Review, 2023.
+
+# Requirements
+
+The codebase has been implemented in Matlab 2021. To use it, please run the file main.m.
