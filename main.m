@@ -41,13 +41,11 @@ options.beta = 1; %% This parameter needs to be tuned. Suggested range: {10^-8,1
 options.nu = 1; %% This parameter needs to be tuned. Suggested range: {10^-8,10^-6,10^-4,10^-2,1,10^2,10^4,10^6,10^8}
 options.maxiter = 10;
 
-%% Centering Matrix
-
 
 %% Laplacian, Similarity and Degree Matrices
 K = 5; %% Size of neighbors. This parameter needs to be tuned. Suggested range: {2,5,10,15,20}
 [L,D,S] = makesimlilarity(X',K);
 
 
-%% Deep OGNMF method
+%% Dn2MFGL method
 [H,V] = Dn2MFGL(X,S,D,options);
