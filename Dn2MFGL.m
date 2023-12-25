@@ -18,13 +18,13 @@ alpha = options.alpha;
 beta = options.beta; 
 nu = options.nu; 
 maxiter = options.maxiter;
-
-%% 
 [m,n] = size(X);
 onesn = ones(n,n);
 E = (1/n)*ones(n,1)*(ones(n,1)');
 
-%% Pretrain
+%%%%%%%%%%%%%%%%%%%%
+% Pre-training
+%%%%%%%%%%%%%%%%%%%%
 [H,V] = Pretain(X,l,r);
 
 %% Computing the L21 norm of X - H1H2...HlVl
@@ -35,7 +35,9 @@ end
 Z = X - Q*V{l};
 P = L21(Z);
 
-
+%%%%%%%%%%%%%%%%%%%%
+% Fine-tuning
+%%%%%%%%%%%%%%%%%%%%
 
 iter = 1;
 while (iter <= maxiter)
