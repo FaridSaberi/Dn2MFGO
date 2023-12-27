@@ -26,9 +26,9 @@ format shortG
 addpath('./AdditionalFiles');
 
 %% Input Data 
-load('YaleB_32x32.mat')
-%% X = NormalizeFea(fea,1);   %% If you want to normalize data, please uncomment this line
-X = fea';
+load('UMIST.mat')
+data = NormalizeFea(X,1);   %% If you want to normalize data, please uncomment this line
+X = data';
 
 
 %% Parameters
